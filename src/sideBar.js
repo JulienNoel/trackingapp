@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+
 import CallIcon from '@mui/icons-material/Call';
 import PeopleIcon from '@mui/icons-material/People';
 import MessageIcon from '@mui/icons-material/Message';
@@ -7,16 +7,21 @@ import ScreenshotMonitorIcon from '@mui/icons-material/ScreenshotMonitor';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import VideocamIcon from '@mui/icons-material/Videocam';
+import CardHead from './components/card';
 
 
 function SideBar() {
 
 
-    
-    
 
   return (
 
+    
+    <div>
+      <CardHead />
+    <div>
+
+    </div>
     <div className="side-bar" >
       <div className='icons'>
         <CallIcon fontSize='large' />
@@ -45,15 +50,8 @@ function SideBar() {
       <div className='icons'>
         <VideocamIcon fontSize='large'/>
         <p>Videos</p>
-      </div>
-      
-      
-      
-      
-      
-      
-    
-            
+      </div>            
+    </div>
     </div>
   );
 }

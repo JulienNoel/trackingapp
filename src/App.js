@@ -1,5 +1,5 @@
 
-import './App.css';
+
 import ScreenHome from './ScreenHome';
 import 'sanitize.css';
 

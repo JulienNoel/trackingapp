@@ -13,21 +13,34 @@ code {
 }
 
 .side-bar {
-  width: 25vw;
-  
+    
   display: flex;
   flex-direction: column;
-  background-color: blue;
+  
 }
 
 .icons {
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 10vh;
+  width: 20vw;
   font-size: 25px;
-  margin-left: 10px;
+  margin: 20px 20px 20px 40px;
+  padding-left: 40px;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow:  16px 16px 31px #bebebe,
+             -16px -16px 31px #ffffff;
+  opacity: 0.8;
+  transition: transform 0.2s ease-in-out;
 }
 
 .icons p {
-  margin-left: 15px;
+  margin-left: 25px;
+}
+
+.icons:hover {
+  transform: scale(1.1); 
+  opacity: 1;
 }
