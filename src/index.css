@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.side-bar {
+  width: 25vw;
+  
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.icons p {
+  margin-left: 15px;
+}
