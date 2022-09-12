@@ -20,10 +20,10 @@ const rows = [
 ];
 
 
-function Contacts() {    
+function Contacts({selection}) {    
     
 
-  return (    
+  return selection !== 'Contacts' ||(    
     
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">

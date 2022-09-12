@@ -10,7 +10,7 @@ import VideocamIcon from '@mui/icons-material/Videocam';
 import CardHead from './components/card';
 
 
-function SideBar() {
+function SideBar({selection}) {
 
   
   const sizeIcon = 'large'
@@ -29,8 +29,8 @@ function SideBar() {
                       {icon: <VideocamIcon fontSize={sizeIcon}/>,
                       name: 'Video'}]
 
-function menuSelection(name) {
-  console.log(name)
+function menuSelection(screen) {
+  selection(screen)
 }
   
 const displayIcons = listIcons.map((el, i) => {
