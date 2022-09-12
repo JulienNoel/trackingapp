@@ -12,48 +12,60 @@ import CardHead from './components/card';
 
 function SideBar() {
 
+  
+  const sizeIcon = 'large'
+  const listIcons = [{icon: <CallIcon fontSize={sizeIcon} />,
+                      name: 'Appels'},
+                      {icon: <PeopleIcon fontSize={sizeIcon}/>,
+                      name: 'Contacts'},
+                      {icon: <MessageIcon fontSize={sizeIcon}/>,
+                      name: 'Messages'},
+                      {icon: <ScreenshotMonitorIcon fontSize={sizeIcon}/>,
+                      name: 'Screenshots'},
+                      {icon: <LocationOnIcon fontSize={sizeIcon}/>,
+                      name: 'Geolocalistion'},
+                      {icon: <CameraAltIcon fontSize={sizeIcon}/>,
+                      name: 'Photos'},
+                      {icon: <VideocamIcon fontSize={sizeIcon}/>,
+                      name: 'Video'}]
 
+function menuSelection(name) {
+  console.log(name)
+}
+  
+const displayIcons = listIcons.map((el, i) => {
+  return <IconMenu icon={el.icon} key={el.name} name={el.name} isSelected={menuSelection}/>
+  
+})
+
+  return ( 
+    
+    <div className="side-bar" >
+      <div className="headCard">
+        <CardHead />
+      </div>
+      {displayIcons}
+      
+    </div>
+    
+  );
+}
+
+function IconMenu({name, icon, isSelected}) {
+
+  
+
+  function handlePress() {
+    isSelected(name)
+    
+  }
 
   return (
-
-    
-    <div>
-      <CardHead />
-    <div>
-
+    <div className='icons' onClick={handlePress}>
+        {icon}
+      <p>{name}</p>
     </div>
-    <div className="side-bar" >
-      <div className='icons'>
-        <CallIcon fontSize='large' />
-        <p>Appels</p>
-      </div>
-      <div className='icons'>
-        <PeopleIcon fontSize='large'/>
-        <p>Contacts</p>
-      </div>
-      <div className='icons'>
-        <MessageIcon fontSize='large'/>
-        <p>Messages</p>
-      </div>
-      <div className='icons'>
-        <ScreenshotMonitorIcon fontSize='large'/>
-        <p>Screenshots</p>
-      </div>
-      <div className='icons'>
-        <LocationOnIcon fontSize='large'/>
-        <p>Localisation</p>
-      </div>
-      <div className='icons'>
-        <CameraAltIcon fontSize='large'/>
-        <p>Photos</p>
-      </div>
-      <div className='icons'>
-        <VideocamIcon fontSize='large'/>
-        <p>Videos</p>
-      </div>            
-    </div>
-    </div>
-  );
+  )
 }
 
 export default SideBar;

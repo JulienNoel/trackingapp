@@ -9,11 +9,14 @@ function CardHead() {
     
     
 
-  return (
-
+  return (    
     
-    <div>
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{
+      bgcolor: 'background.paper',
+      boxShadow: 8,
+      borderRadius: 2,
+      
+    }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: '#FFD25A' }} aria-label="recipe">
@@ -25,7 +28,7 @@ function CardHead() {
       />      
     </Card>
     
-    </div>
+    
   );
 }
 

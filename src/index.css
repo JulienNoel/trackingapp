@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+.everything-screen{
+  display: flex;
+   
+
+}
+
 .side-bar {
     
   display: flex;
@@ -26,7 +32,7 @@ code {
   height: 10vh;
   width: 20vw;
   font-size: 25px;
-  margin: 20px 20px 20px 40px;
+  margin: 10px 20px 20px 40px;
   padding-left: 40px;
   border-radius: 50px;
   background: #e0e0e0;
@@ -43,4 +49,19 @@ code {
 .icons:hover {
   transform: scale(1.1); 
   opacity: 1;
+}
+
+.headCard {
+  height: 10vh;
+  width: 20vw;
+  margin: 30px 0px 0px 40px;
+
+}
+
+.side-screen {
+height: 75vh;
+width: 70vw;
+background-color: aqua;
+margin: 40px 0 0 40px;
+
 }
