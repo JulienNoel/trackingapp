@@ -6,7 +6,7 @@ export default function Photos({selection}) {
 
 
   return selection !== 'Photos' || (
-    <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+    <ImageList variant="quilted" cols={3} rowHeight={164}>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
           <img

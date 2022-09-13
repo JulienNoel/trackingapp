@@ -13,7 +13,7 @@ function CardHead() {
     
     <Card sx={{
       bgcolor: 'background.paper',
-      boxShadow: 8,
+      boxShadow: 5,
       borderRadius: 2,
       
     }}>

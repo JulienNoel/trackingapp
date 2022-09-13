@@ -6,7 +6,7 @@ import Messages from './components/messages';
 import Photos from './components/photos';
 import GeoLocalisation from './components/localisation';
 import Videos from './components/video';
-
+import PhoneInfo from './components/phoneInfo';
 
 function ScreenHome() {
 
@@ -20,7 +20,9 @@ function ScreenHome() {
   return (
       
       <div className='everything-screen'>
+      
         <SideBar selection={onChangeSelection}/>
+        <PhoneInfo />
         <div className='side-screen'>
           <CompoundComponentMenu selection={selectionMenu} >
             <Appels />
@@ -31,6 +33,7 @@ function ScreenHome() {
             <Videos />
           </CompoundComponentMenu>
         </div>
+        
       </div>
       
   
