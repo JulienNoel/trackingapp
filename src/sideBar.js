@@ -1,9 +1,9 @@
 import React from 'react';
 
+import HomeIcon from '@mui/icons-material/Home';
 import CallIcon from '@mui/icons-material/Call';
 import PeopleIcon from '@mui/icons-material/People';
 import MessageIcon from '@mui/icons-material/Message';
-import ScreenshotMonitorIcon from '@mui/icons-material/ScreenshotMonitor';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import VideocamIcon from '@mui/icons-material/Videocam';
@@ -14,20 +14,20 @@ function SideBar({selection}) {
 
   
   const sizeIcon = 'large'
-  const listIcons = [{icon: <CallIcon fontSize={sizeIcon} />,
+  const listIcons = [{icon: <HomeIcon fontSize={sizeIcon}/>,
+                      name: 'Home'},
+                      {icon: <CallIcon fontSize={sizeIcon} />,
                       name: 'Appels'},
                       {icon: <PeopleIcon fontSize={sizeIcon}/>,
                       name: 'Contacts'},
                       {icon: <MessageIcon fontSize={sizeIcon}/>,
-                      name: 'Messages'},
-                      {icon: <ScreenshotMonitorIcon fontSize={sizeIcon}/>,
-                      name: 'Screenshots'},
+                      name: 'Messages'},                      
                       {icon: <LocationOnIcon fontSize={sizeIcon}/>,
                       name: 'Geolocalistion'},
                       {icon: <CameraAltIcon fontSize={sizeIcon}/>,
                       name: 'Photos'},
                       {icon: <VideocamIcon fontSize={sizeIcon}/>,
-                      name: 'Video'}]
+                      name: 'Videos'}]
 
 function menuSelection(screen) {
   selection(screen)
