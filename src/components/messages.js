@@ -1,18 +1,17 @@
 import React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
 
 function createData(name, numero, texte) {
   return { name, numero, texte };
 }
 
 const rows = [
-  createData('jacques', '0677889966', 'salut, ça va?'),
+  createData('Jacques', '0677889966', 'salut, ça va?'),
   createData('Julie', '0145909078', 'Ce soir ciné ?'),
   createData('Claire', '0245897866', 't\'es où?'),
   createData('Jean', '0356845522', 'que paso amigo'),
@@ -20,36 +19,29 @@ const rows = [
 ];
 
 
+
 function Messages({selection}) {    
     
 
   return selection !== 'Messages' ||(    
     
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Contacts</TableCell>
-            <TableCell align="right">Numéro</TableCell>
-            <TableCell align="right">Message</TableCell>           
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.numero}</TableCell>
-              <TableCell align="right">{row.texte}</TableCell>               
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <List dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+      {rows.map((user) => {
+        
+        return (
+          <ListItem key={user.name}>
+            <ListItemButton onClick={() => console.log('selectContact')}>
+              <ListItemAvatar>
+                <Avatar alt={user.name} sx={{ bgcolor: 'orange' }}>
+                {user.name.charAt(0)}
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText id={user.name} primary={`${user.texte}`} secondary={`date du dernier message`}/>
+            </ListItemButton>
+          </ListItem>
+        );
+      })}
+    </List>
     
   );
 }

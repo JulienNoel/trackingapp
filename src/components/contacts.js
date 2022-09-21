@@ -57,7 +57,7 @@ const [checked, setChecked] = useState([1]);
         const labelId = `checkbox-list-secondary-label-${user.lastName}`;
         return (
           <ListItem
-            key={user.lastName}
+            key={user.phone}
             secondaryAction={
               <Checkbox
                 edge="end"
