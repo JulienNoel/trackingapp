@@ -11,11 +11,13 @@ import PhoneInfo from './components/phoneInfo';
 function ScreenHome() {
 
   const [selectionMenu, setSelectionMenu] = useState('Home')
+ 
   function onChangeSelection(screen) {
     setSelectionMenu(screen)
+    
   }
 
-  console.log(selectionMenu)
+ 
 
   return (
       

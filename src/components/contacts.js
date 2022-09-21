@@ -1,55 +1,86 @@
 import React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Checkbox from '@mui/material/Checkbox';
+import Avatar from '@mui/material/Avatar';
 
-function createData(name, numero) {
-  return { name, numero };
-}
-
-const rows = [
-  createData('jacques', '0677889966'),
-  createData('Julie', '0145909078'),
-  createData('Claire', '0245897866'),
-  createData('Jean', '0356845522'),
-  createData('Carole', '0762354788'),
-];
+import { useEffect, useState } from 'react';
 
 
-function Contacts({selection}) {    
+
+
+function Contacts({selection}) { 
+
+const [usersList, setUsersList] = useState([])
+  
+
+useEffect(() => {
+
+  async function loadUser () {
+
+    const response = await fetch('https://dummyjson.com/users')
+    const rawResponse = await response.json()
     
+    if (response) {
+      setUsersList(rawResponse.users) 
+    }
+       
+    
+  }
+  loadUser()
+}, [])
+
+const [checked, setChecked] = useState([1]);
+
+  const handleToggle = (value) => () => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    setChecked(newChecked);
+  };
+   
 
   return selection !== 'Contacts' ||(    
     
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Contacts</TableCell>
-            <TableCell align="right">Numéro</TableCell>
+    
+    <List sx={{ width: '100%', maxWidth: 1000, bgcolor: 'background.paper' }}>
+      {usersList.map((user) => {
+        const labelId = `checkbox-list-secondary-label-${user.lastName}`;
+        return (
+          <ListItem
+            key={user.lastName}
+            secondaryAction={
+              <Checkbox
+                edge="end"
+                onChange={handleToggle(user.lastName)}
+                checked={checked.indexOf(user.lastName) !== -1}
+                inputProps={{ 'aria-labelledby': labelId }}
+              />
+            }
             
-            
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.numero}</TableCell>              
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          >
+            <ListItemButton>
+              <ListItemAvatar>
+                <Avatar                  
+                  src={user.image}
+                />
+              </ListItemAvatar>
+              <ListItemText id={labelId} primary={`${user.firstName} ${user.lastName}`}
+                                          secondary={`${user.phone}`} />              
+            </ListItemButton>
+          </ListItem>
+        );
+      })}
+    </List>
     
   );
 }

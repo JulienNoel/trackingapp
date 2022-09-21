@@ -1,24 +1,46 @@
 import * as React from 'react';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
+import DownloadIcon from '@mui/icons-material/Download';
 
 export default function Photos({selection}) {
 
+  
+
 
   return selection !== 'Photos' || (
-    <ImageList variant="quilted" cols={3} rowHeight={164}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            alt={item.title}
-            loading="lazy"
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
-  );
+
+    <div className='photo-list'>
+    {itemData.map((item) => 
+    <Card sx={{maxWidth: 300, margin: 4}}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="300"
+          image={item.img}
+          alt={item.title}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {item.title}
+          </Typography>
+          <div className='card-date-download'>
+          <Typography variant="body2" color="text.secondary">
+          Date          
+          </Typography>
+          <a href={item.img} download target='_blank' rel="noopener noreferrer"><DownloadIcon /></a>
+          </div>
+        </CardContent>
+      </CardActionArea>
+  </Card>
+    )}
+    
+</div>
+
+  )
 }
 
 const itemData = [

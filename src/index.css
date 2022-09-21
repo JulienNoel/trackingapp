@@ -14,6 +14,11 @@ code {
     monospace;
 }
 
+a, a:hover, a:focus, a:active{
+  text-decoration: none;
+  color: inherit;
+}
+
 .everything-screen{
   display: flex;
    
@@ -72,4 +77,17 @@ code {
 .leaflet-container {
   height: 75vh;
   width: 100vw;
+}
+
+.photo-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80vw;
+  justify-content: center;
+}
+
+.card-date-download {
+  display: flex;
+  justify-content: space-between;
 }

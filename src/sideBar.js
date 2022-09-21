@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 
 import HomeIcon from '@mui/icons-material/Home';
 import CallIcon from '@mui/icons-material/Call';
@@ -53,12 +54,12 @@ const displayIcons = listIcons.map((el, i) => {
 
 function IconMenu({name, icon, isSelected}) {
 
-  
 
   function handlePress() {
     isSelected(name)
-    
   }
+
+   
 
   return (
     <div className='icons' onClick={handlePress}>
